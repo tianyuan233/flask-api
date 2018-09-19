@@ -1,6 +1,6 @@
 from flask import Blueprint
 
-from ginger.app.libs.redprint import Redprint
+from app.libs.redprint import Redprint
 
 # user = Blueprint('user', __name__)
 

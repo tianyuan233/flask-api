@@ -1,2 +1,4 @@
 .idea
 app/config/secure.py
+#**代表任意层级目录
+**/__pycache__

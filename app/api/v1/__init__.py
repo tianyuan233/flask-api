@@ -1,7 +1,7 @@
 from flask import Blueprint
 
-from ginger.app.api.v1 import user
-from ginger.app.api.v1 import book
+from app.api.v1 import user
+from app.api.v1 import book
 
 def create_blueprint_v1():
     bp_v1 = Blueprint('v1',__name__)

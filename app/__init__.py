@@ -1,7 +1,7 @@
 from flask import Flask
 
 def register_blueprints(app):
-    from ginger.app.api.v1 import create_blueprint_v1
+    from app.api.v1 import create_blueprint_v1
     app.register_blueprint(create_blueprint_v1(),url_prefix='/v1')
 
 
