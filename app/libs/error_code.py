@@ -21,5 +21,5 @@ class Success(APIException):
 
 class ServerError(APIException):
     code = 500
-    msg = 'sorry, we made a mistake'
+    msg = '服务器错误'
     error_code = 999
