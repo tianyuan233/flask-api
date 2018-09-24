@@ -29,9 +29,9 @@ class UserEmailForm(ClientForm):
         # password can only include letters , numbers and "_"
         Regexp(r'^[A-Za-z0-9_*&$#@]{6,22}$')
     ])
-    nickname = StringField(validators=[DataRequired(),
+    nickname = StringField(validators=[DataRequired(message='不允许为空'),
                                        length(min=2, max=22)])
 
     def validate_account(self, value):
         if User.query.filter_by(email=value.data).first():
-            raise ValidationError()
+            raise ValidationError(message='该邮箱已注册')

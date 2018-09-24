@@ -5,8 +5,8 @@ from app.libs.error_code import ParameterException
 
 
 class BaseForm(Form):
-    def __init__(self, data):
-        data = request.get_json(silent=True)
+    def __init__(self):
+        data = request.json
         args = request.args.to_dict()
         super(BaseForm, self).__init__(data=data, **args)
 
@@ -15,3 +15,4 @@ class BaseForm(Form):
         if not valid:
             # 错误信息存在于 form errors
             raise ParameterException(msg=self.errors)
+        return self
