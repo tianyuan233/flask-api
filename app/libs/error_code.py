@@ -1,6 +1,6 @@
 from app.libs.error import APIException
 
-
+#通过自定义的APIException 将各类情况返回为同一种格式的json
 class ClientTypeError(APIException):
     code = 400
     msg = 'client is invalid'

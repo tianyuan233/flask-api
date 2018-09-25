@@ -6,6 +6,8 @@ from app.libs.error_code import ServerError
 
 app = create_app()
 
+
+# 全局异常处理
 @app.errorhandler(Exception)
 def framework_error(e):
     if isinstance(e, APIException):
@@ -16,11 +18,12 @@ def framework_error(e):
         error_code = 1007
         return APIException(msg, code, error_code)
     else:
-        #如果是调试模式，返回详细错误
+        # 如果是调试模式，返回详细错误
         if not app.config['DEBUG']:
             return ServerError()
         else:
             raise e
 
+
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)

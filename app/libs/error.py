@@ -1,7 +1,7 @@
 from flask import request, json
 from werkzeug.exceptions import HTTPException
 
-
+#自定义异常
 class APIException(HTTPException):
     code = 500
     msg = 'sorry, we made a mistake ~'
