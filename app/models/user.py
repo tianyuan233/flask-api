@@ -1,6 +1,7 @@
 from sqlalchemy import Column, Integer, String, SmallInteger
 from werkzeug.security import check_password_hash, generate_password_hash
 
+from app.libs.error_code import AuthFailed
 from app.models.base import Base, db
 
 
