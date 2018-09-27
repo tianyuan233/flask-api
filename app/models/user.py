@@ -1,3 +1,5 @@
+import datetime
+
 from sqlalchemy import Column, Integer, String, SmallInteger
 from werkzeug.security import check_password_hash, generate_password_hash
 
@@ -13,7 +15,7 @@ class User(Base):
     _password = Column('password', String(100))
 
     def keys(self):
-        return ['id', 'email', 'nickname', 'auth']
+        return ['id', 'email', 'nickname', 'auth', 'time']
 
     @property
     def password(self):
