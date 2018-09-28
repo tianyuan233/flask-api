@@ -17,6 +17,11 @@ class AuthFailed(APIException):
     error_code = 1005
     msg = 'authorization failed'
 
+class Forbidden(APIException):
+    code = 403
+    error_code = 1004
+    msg = 'forbidden, not in scope'
+
 class NotFound(APIException):
     code = 404
     msg = 'the resource are not found O__O...'

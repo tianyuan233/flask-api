@@ -37,7 +37,6 @@ def get_token():
     }
     return jsonify(t), 201
 
-    pass
 
 
 

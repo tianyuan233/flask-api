@@ -13,7 +13,8 @@ from flask import current_app, request, g
 from flask_httpauth import HTTPBasicAuth
 from itsdangerous import TimedJSONWebSignatureSerializer as Serializer, BadSignature, SignatureExpired
 
-from app.libs.error_code import AuthFailed
+from app.libs.error_code import AuthFailed, Forbidden
+from app.libs.scope import is_in_scope
 
 auth = HTTPBasicAuth()
 User = namedtuple('User', ['uid', 'ac_type', 'scope'])
@@ -45,9 +46,10 @@ def verify_auth_token(token):
     uid = data['uid']
     ac_type = data['type']
 
-    # scope = data['scope']
+    scope = data['scope']
     # request 视图函数
-    # allow = is_in_scope(scope, request.endpoint)
-    # if not allow:
-    #     raise Forbidden()
-    return User(uid, ac_type, '')
+    # endpoint v1.red_name+view_func 红图定义中
+    allow = is_in_scope(scope, request.endpoint)
+    if not allow:
+         raise Forbidden()
+    return User(uid, ac_type, scope)
