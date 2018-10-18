@@ -72,7 +72,7 @@ class Base(db.Model):
 
     def keys(self):
         return self.fields
-
+    #隐藏字段
     def hide(self, *keys):
         for key in keys:
             self.fields.remove(key)
