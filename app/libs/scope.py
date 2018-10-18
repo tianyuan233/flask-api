@@ -30,7 +30,7 @@ class Scope:
 
 
 class AdminScope(Scope):
-    allow_module = ['v1.user']
+    allow_module = ['v1.user','v1.gift']
     allow_api = ['v1.user+super_get_user',
                  'v1.user+super_delete_user']
 
