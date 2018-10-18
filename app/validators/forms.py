@@ -44,3 +44,7 @@ class SearchForm(Form):
         validators=[NumberRange(min=1, max=99)],
         default=1
     )
+
+
+class TokenForm(Form):
+    token = StringField(validators=[DataRequired()])
